@@ -1,3 +1,7 @@
+//Author(s): Anton Eksell	& Anna Abri	
+//Email:	eksell@student.chalmers.se
+//Date: 11/4-2015
+
 package collection;
 
 public class SingleBuffer<E>{
