@@ -1,10 +1,8 @@
 package collection;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.Function;
 
@@ -75,9 +73,11 @@ public class CollectionOps {
 	map(Function<T,R> f,Collection<T> c) 
 	{
 		// Determine the dynamic type of the collection
+		@SuppressWarnings("rawtypes")
 		Class<? extends Collection> cls = c.getClass();
 		try {
 			// Create an object of the same dynamic type as c
+			@SuppressWarnings("unchecked")
 			Collection<R> result = (Collection<R>)cls.newInstance();
 			// type.cast(type.newInstance());
 			// Copy the elements and apply op to them
@@ -97,9 +97,11 @@ public class CollectionOps {
 	filter(Predicate<T> f,Collection<T> c) 
 	{
 		// Determine the dynamic type of the collection
+		@SuppressWarnings("rawtypes")
 		Class<? extends Collection> cls = c.getClass();
 		try {
 			// Create an object of the same dynamic type as c
+			@SuppressWarnings("unchecked")
 			Collection<T> result = (Collection<T>)cls.newInstance();
 			// type.cast(type.newInstance());
 			// Copy the elements and apply op to them

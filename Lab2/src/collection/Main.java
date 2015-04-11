@@ -1,16 +1,11 @@
 package collection;
 
-import java.awt.print.Printable;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Arrays;
-
-import collection.*;
 import static collection.CollectionOps.*;
 
 public class Main {
@@ -128,16 +123,12 @@ public class Main {
          
          
          // Assignment 6: Write code using lambdas here
-         
-//         epostadresserna
-//         till alla kvinnor äldre än 65 år. Kombinera print, map, filter och lämpliga (lambda)-
-//         uttryck,
-         
-        // Function<Person,Person> p = x -> (if(x.getGender() == "female") && (x.getAge() >= 65)){ p = x});
-         
-//         ArrayList<Person> pOne = (ArrayList<Person>) map(x -> if((x.getAge()>=65)&&(x.getGender() == "female")){Person y = x;}, pl);
-         System.out.println(map(x -> x.getAge()>=65, pl));
-         
+         //  epostadresserna till alla kvinnor äldre än 65 år.
+               
+         ArrayList<String> matureLadiesEmail = new ArrayList<>();
+         map(x ->{ if(x.getAge()>= 65 && x.getGender() == "female") return matureLadiesEmail.add(x.getEmail()); else return null;}, pl);
+         print(matureLadiesEmail);
+
 		
 	}
 
