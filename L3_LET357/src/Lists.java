@@ -1,8 +1,8 @@
 /**
  * A collection of utility functions for C style primitive list handling.
  *
- * @author(s)
- * @version 2013-xx-yy
+ * @author(s): Anton Eksell	
+ * @version 2015--04-21
  */
 public class Lists {
    
@@ -112,7 +112,15 @@ public class Lists {
     
     // Testmetod: JunitListTest.testToString()
     public static String toString(ListNode l) {
-         return null;
+    	if(l == null){
+    		throw new ListsException("Lists: null passed to toString");
+    	}
+    	
+    	String result = "";
+    	while(l.next != null){
+    		result = result + l.next; 
+    	}
+         return result;
     }
     
     // Testmetod: JunitListTest.testContains()
@@ -136,8 +144,25 @@ public class Lists {
     }
    
     // Testmetod: JunitListTest.testAddLast()
-    public static ListNode addLast(ListNode l,char c) {  
-        return null;
+    public static ListNode addLast(ListNode l,char c) {
+        ListNode itr = l; 
+    	if (itr == null){
+            throw new ListsException("Lists: null passed to addLast");
+        }
+        
+        else{ 
+        	while(true){
+        		if(itr.next == null){
+        			itr.next = new ListNode();
+        		    itr.next.element = c;
+        			break;
+        		}
+        		else{
+        			itr = itr.next;
+        		}
+    		}
+        	return l;
+        }
     }
     
     // Testmetod: JunitListTest.testConcat()
@@ -147,6 +172,10 @@ public class Lists {
     
     // Testmetod: JunitListTest.testAddAll()
     public static ListNode addAll(ListNode l1,ListNode l2) { 
+        if ( l1 == null || l2 == null){
+            throw new ListsException("Lists: null passed to addAll");
+        }
+        
         return null;
     }
       
