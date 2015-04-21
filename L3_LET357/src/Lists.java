@@ -128,20 +128,20 @@ public class Lists {
    
     // Testmetod: JunitListTest.testAddLast()
     public static ListNode addLast(ListNode l,char c) {
-        
-    	if (l == null){
+        ListNode itr = l; 
+    	if (itr == null){
             throw new ListsException("Lists: null passed to addLast");
         }
         
         else{ 
         	while(true){
-        		if(l.next == null){
-        			l.next = new ListNode();
-        		    l.next.element = c;
+        		if(itr.next == null){
+        			itr.next = new ListNode();
+        		    itr.next.element = c;
         			break;
         		}
         		else{
-        			l = l.next;
+        			itr = itr.next;
         		}
     		}
         	return l;
