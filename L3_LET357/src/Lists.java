@@ -91,6 +91,23 @@ public class Lists {
         return l;
      }
     
+    public static boolean contains(ListNode l, char c){
+    	
+            if ( l == null )
+                throw new ListsException("Lists: null passed to copy");
+            ListNode ptr;
+           
+ 
+
+            ptr2 = l.next;  // första listelementet i originallistan
+            while ( ptr != null ) {
+                     if(ptr.element==c)
+                    	 return true
+                ptr = ptr.next;              // Flytta fram i originallistan
+            }
+            return false;
+        
+    
     // ---------------- Uppgifter ----------------- 
     
     // Testmetod: JunitListTest.testToString()
