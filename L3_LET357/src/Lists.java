@@ -133,9 +133,23 @@ public class Lists {
 	}
 
 	// Testmetod: JunitListTest.testCopyUpperCase()
-	public static ListNode copyUpperCase(ListNode head) {
-		return null;
-	}
+    public static ListNode copyUpperCase(ListNode l){
+    	
+        if ( l == null )
+            throw new ListsException("Lists: null passed to copy");
+        ListNode ptr;
+       
+
+
+        ptr = l.next;  // f?rsta listelementet i originallistan
+        
+        while ( ptr != null ) {
+                 if(ptr.element==ptr.element.toUpperCase())
+                ptr.element=ptr.element.toUpperCase();	 
+            ptr = ptr.next;              // Flytta fram i originallistan
+        }
+        return false;
+}
 
 	// Testmetod: JunitListTest.testAddFirst()
 	public static ListNode addFirst(ListNode l,char c) {  
