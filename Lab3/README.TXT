@@ -1,1 +1,2 @@
-Filer för Alg&DS lab 3, 08/09
+Lab 3 - Länkade listor
+Anton Eksell & Anna Abri
