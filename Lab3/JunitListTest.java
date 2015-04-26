@@ -249,9 +249,13 @@ public class JunitListTest {
     {
         // addFirst = :
         // (forall s in cases)(x:toList(s) = toList(x+s))
-        for ( String s : cases )
-            assertTrue(Lists.equals(Lists.addFirst(Lists.toList(s),'X'),
-                       Lists.toList("X"+s)));
+    	
+    	
+        for ( String s : cases ){
+        	System.out.println(s+"Test");
+            assertTrue(Lists.equals(Lists.addFirst(Lists.toList(s),'Y'),
+                       Lists.toList("Y"+s)));
+        }
     }
     
     @Test(expected = ListsException.class)
