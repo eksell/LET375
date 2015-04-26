@@ -190,10 +190,21 @@ public class Lists {
 
 	// Testmetod: JunitListTest.testConcat()
 	public static ListNode concat(ListNode l1,ListNode l2) {
-		Exception(l1, "concat");
-		Exception(l2, "concat");
+		ListNode ptr;
+		if(l1==null)
+			return l2;
+		if(l2==null)
+			return l1;
+			else{
+				ptr=l1;
+				while(ptr.next != null){
+					ptr = ptr.next;
+					
+				}
+				ptr.next = l2;
+			}
 		
-		return null;
+		return l1;
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
