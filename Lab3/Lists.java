@@ -158,7 +158,7 @@ public class Lists {
 		ListNode head = new ListNode();
 		l.element = c; 
 		head.next = l;
-		
+
 		return head;
 	}
 
@@ -192,7 +192,7 @@ public class Lists {
 	public static ListNode concat(ListNode l1,ListNode l2) {
 		Exception(l1, "concat");
 		Exception(l2, "concat");
-		
+
 		return null;
 	}
 
@@ -200,7 +200,7 @@ public class Lists {
 	public static ListNode addAll(ListNode l1,ListNode l2) {
 		Exception(l1, "addAll");
 		Exception(l2, "addAll");
-		
+
 		getLastNode(l1).next = l2;
 
 		return l1;
@@ -209,8 +209,27 @@ public class Lists {
 	// Testmetod: JunitListTest.testReverse()
 	public static ListNode reverse(ListNode head) {
 		Exception(head, "reverse");
-		//TODO
-		return null;
+
+		System.out.println("rev:"+ toString(head));
+
+		ListNode revl = new ListNode(); 
+		ListNode buffer = new ListNode();
+		buffer.next = null;
+		revl.next = null;
+		
+
+		while(head.next != null){
+			head = head.next; 				// Steg fram lista 
+			revl.element = head.element; 	// Kopierar lista
+								
+			buffer = revl;					//Sparar nod
+			
+			revl = new ListNode();			//Skapar nästa nod
+			revl.next = buffer;				//Pekar på senaste noden
+
+		}
+		
+		return revl;
 	}
 
 	private static void Exception(ListNode l, String s){
