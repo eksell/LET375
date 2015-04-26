@@ -1,3 +1,5 @@
+import java.io.ObjectInputStream.GetField;
+
 /**
  * A collection of utility functions for C style primitive list handling.
  *
@@ -57,7 +59,7 @@ public class Lists {
 	// Se forel. OH
 	public static ListNode copy(ListNode l) {
 		Exception(l, "copy");
-		
+
 		ListNode head,ptr1,ptr2;
 		head = new ListNode();             // Kopian
 		head.next = null;
@@ -103,7 +105,6 @@ public class Lists {
 				result = result + itr.element;	
 			}
 			else{
-				//  			System.out.println(result);
 				break;
 			}	
 		}
@@ -125,34 +126,40 @@ public class Lists {
 		return false;
 	}
 
-	//	// Testmetod: JunitListTest.testCopyUpperCase()
-	//    public static ListNode copyUpperCase(ListNode l){
-	//    	
-	//        if ( l == null )
+	// Testmetod: JunitListTest.testCopyUpperCase()
+
+	//     public static ListNode copyUpperCase(ListNode l){
+	//
+	//    	 if ( l == null )
 	//            throw new ListsException("Lists: null passed to copy");
-	//        ListNode ptr;
-	//       
+	//        ListNode head,ptr1,ptr2;
+	//		head = new ListNode();             // Kopian
+	//		head.next = null;
+	//		ptr1 = head;
 	//
-	//
-	//        ptr = l.next;  // f?rsta listelementet i originallistan
-	//        
-	//        while ( ptr != null ) {
-	//                 if(ptr.element==ptr.element.toUpperCase())
-	//                ptr.element=ptr.element.toUpperCase();	 
-	//            ptr = ptr.next;              // Flytta fram i originallistan
-	//        }
-	//        return false;
-	//}
+	//		ptr2 = l.next;  // forsta listelementet i originallistan
+	//		while ( ptr2 != null ) {
+	//			ptr1.next = new ListNode();    // Ny nod i kopian
+	//			ptr1 = ptr1.next; //flytta fram
+	//				if(Character.isUpperCase(ptr2.element)) {
+	//					ptr1.element = ptr2.element;   // Kopiera tecknet
+	//					ptr1.next = null;              // Avsluta
+	//					ptr2 = ptr2.next;              // Flytta fram i originallistan
+	//				}
+	//		}
+	//		return head;
+	//	}
 
 	// Testmetod: JunitListTest.testAddFirst()
 	public static ListNode addFirst(ListNode l,char c) {
 		//Adderar c först i l. Metoden muterar l och returnerar en referens till l.
+		//Gör antagandet att l är head i listan och därför tomt.
 		Exception(l, "addFirst");
-
-		ListNode nextFirst = new ListNode();
-		nextFirst.next = l;
-		nextFirst.element = c;
-		return nextFirst;
+		ListNode head = new ListNode();
+		l.element = c; 
+		head.next = l;
+		
+		return head;
 	}
 
 	// This is a private utility method.
@@ -166,7 +173,7 @@ public class Lists {
 	// Testmetod: JunitListTest.testAddLast()
 	public static ListNode addLast(ListNode l,char c) {
 		Exception(l, "addLast");
-		
+
 		ListNode itr = l; 
 		while(true){
 			if(itr.next == null){
@@ -182,7 +189,10 @@ public class Lists {
 	}
 
 	// Testmetod: JunitListTest.testConcat()
-	public static ListNode concat(ListNode l1,ListNode l2) {  
+	public static ListNode concat(ListNode l1,ListNode l2) {
+		Exception(l1, "concat");
+		Exception(l2, "concat");
+		
 		return null;
 	}
 
@@ -190,12 +200,16 @@ public class Lists {
 	public static ListNode addAll(ListNode l1,ListNode l2) {
 		Exception(l1, "addAll");
 		Exception(l2, "addAll");
+		
+		getLastNode(l1).next = l2;
 
-		return null;
+		return l1;
 	}
 
 	// Testmetod: JunitListTest.testReverse()
-	public static ListNode reverse(ListNode head) {  
+	public static ListNode reverse(ListNode head) {
+		Exception(head, "reverse");
+		//TODO
 		return null;
 	}
 
