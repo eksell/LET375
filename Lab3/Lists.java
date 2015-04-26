@@ -1,8 +1,8 @@
 /**
  * A collection of utility functions for C style primitive list handling.
  *
- * @author(s): Anton Eksell	
- * @version 2015--04-21
+ * @author(s): Anton Eksell, Anna Abri
+ * @version 2015-04-21
  */
 public class Lists {
 
@@ -132,32 +132,41 @@ public class Lists {
 		return false;
 	}
 
-	// Testmetod: JunitListTest.testCopyUpperCase()
-    public static ListNode copyUpperCase(ListNode l){
-    	
-        if ( l == null )
-            throw new ListsException("Lists: null passed to copy");
-        ListNode ptr;
-       
-
-
-        ptr = l.next;  // f?rsta listelementet i originallistan
-        
-        while ( ptr != null ) {
-                 if(ptr.element==ptr.element.toUpperCase())
-                ptr.element=ptr.element.toUpperCase();	 
-            ptr = ptr.next;              // Flytta fram i originallistan
-        }
-        return false;
-}
+//	// Testmetod: JunitListTest.testCopyUpperCase()
+//    public static ListNode copyUpperCase(ListNode l){
+//    	
+//        if ( l == null )
+//            throw new ListsException("Lists: null passed to copy");
+//        ListNode ptr;
+//       
+//
+//
+//        ptr = l.next;  // f?rsta listelementet i originallistan
+//        
+//        while ( ptr != null ) {
+//                 if(ptr.element==ptr.element.toUpperCase())
+//                ptr.element=ptr.element.toUpperCase();	 
+//            ptr = ptr.next;              // Flytta fram i originallistan
+//        }
+//        return false;
+//}
 
 	// Testmetod: JunitListTest.testAddFirst()
-	public static ListNode addFirst(ListNode l,char c) {  
-		return null;
+	public static ListNode addFirst(ListNode l,char c) {
+		//Adderar c först i l. Metoden muterar l och returnerar en referens till l.
+		Exception(l, "addFirst");
+		
+		ListNode nextFirst = new ListNode();
+		nextFirst.next = l;
+		nextFirst.element = c;
+		return nextFirst;
 	}
 
 	// This is a private utility method.
 	private static ListNode getLastNode(ListNode head) {
+		//Returnerar en referens till den sista noden i l (listhuvudet om l refererar till en tom lista.)
+		//Metoden muterar ej l.
+		
 		return null;
 	}
 
@@ -189,7 +198,8 @@ public class Lists {
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
-	public static ListNode addAll(ListNode l1,ListNode l2) { 
+	public static ListNode addAll(ListNode l1,ListNode l2) {
+		//TODO Korrekt?
 		if ( l1 == null || l2 == null){
 			throw new ListsException("Lists: null passed to addAll");
 		}
@@ -200,5 +210,11 @@ public class Lists {
 	// Testmetod: JunitListTest.testReverse()
 	public static ListNode reverse(ListNode head) {  
 		return null;
+	}
+	
+	private static void Exception(ListNode l, String s){
+		if ( l == null){
+			throw new ListsException("Lists: null passed to "+s);
+		}
 	}
 }
