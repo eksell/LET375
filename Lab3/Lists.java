@@ -136,16 +136,17 @@ public class Lists {
 		ListNode head = new ListNode();
 		head = ptr1;					//Huvud som returneras
 		
-		ptr2 = l.next; 	 					//Flyttar fram och pekar på första element			
+		ptr2 = l; 	 					//Flyttar fram och pekar på första element			
 		
-		while ( ptr2 != null ) {			
+		while ( ptr2 != null ) {
+			//System.out.println("1:HIT");
 			if(Character.isUpperCase(ptr2.element)) {
 				ptr1.next = new ListNode();	// Skapa ny nod för detta tecken
 				ptr1 = ptr1.next;			// Hoppar fram till nya noden
 				ptr1.element = ptr2.element;// Kopiera tecknet till ny nod
 				ptr1.next = null;           // Avsluta lista
-				ptr2 = ptr2.next;           // Flytta fram i originallistan
 			}
+			ptr2 = ptr2.next;           // Flytta fram i originallistan
 		}
 
 		return head;
@@ -175,7 +176,7 @@ public class Lists {
 			ListNode last = new ListNode();
 			
 			while(head.next != null){
-				System.out.println("PRINT: " + head.element);
+				//System.out.println("PRINT: " + head.element);
 				
 				last = head;
 				head = head.next;
