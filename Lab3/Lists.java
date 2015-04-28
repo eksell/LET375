@@ -216,6 +216,21 @@ public class Lists {
 		System.out.println(toString(l1)+"+2+"+toString(l2)); 
 
 		return l1;
+
+//		ListNode ptr;
+//		if(l1==null)
+//			return l2;
+//		if(l2==null)
+//			return l1;
+//			else{
+//				ptr=l1;
+//				while(ptr.next != null){
+//					ptr = ptr.next;
+//					
+//				}
+//				ptr.next = l2;
+//				return l1;
+//			}
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
