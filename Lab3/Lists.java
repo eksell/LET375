@@ -128,27 +128,27 @@ public class Lists {
 
 	// Testmetod: JunitListTest.testCopyUpperCase()
 
-	//     public static ListNode copyUpperCase(ListNode l){
-	//
-	//    	 if ( l == null )
-	//            throw new ListsException("Lists: null passed to copy");
-	//        ListNode head,ptr1,ptr2;
-	//		head = new ListNode();             // Kopian
-	//		head.next = null;
-	//		ptr1 = head;
-	//
-	//		ptr2 = l.next;  // forsta listelementet i originallistan
-	//		while ( ptr2 != null ) {
-	//			ptr1.next = new ListNode();    // Ny nod i kopian
-	//			ptr1 = ptr1.next; //flytta fram
-	//				if(Character.isUpperCase(ptr2.element)) {
-	//					ptr1.element = ptr2.element;   // Kopiera tecknet
-	//					ptr1.next = null;              // Avsluta
-	//					ptr2 = ptr2.next;              // Flytta fram i originallistan
-	//				}
-	//		}
-	//		return head;
-	//	}
+	public static ListNode copyUpperCase(ListNode l){
+
+		if ( l == null )
+			throw new ListsException("Lists: null passed to copy");
+		ListNode head,ptr1,ptr2;
+		head = new ListNode();             // Kopian
+		head.next = null;
+		ptr1 = head;
+
+		ptr2 = l.next;  // forsta listelementet i originallistan
+		while ( ptr2 != null ) {
+			ptr1.next = new ListNode();    // Ny nod i kopian
+			ptr1 = ptr1.next; //flytta fram
+			if(Character.isUpperCase(ptr2.element)) {
+				ptr1.element = ptr2.element;   // Kopiera tecknet
+				ptr1.next = null;              // Avsluta
+				ptr2 = ptr2.next;              // Flytta fram i originallistan
+			}
+		}
+		return head;
+	}
 
 	// Testmetod: JunitListTest.testAddFirst()
 	public static ListNode addFirst(ListNode l,char c) {
@@ -208,29 +208,17 @@ public class Lists {
 		Exception(l1, "concat");
 		Exception(l2, "concat");
 		
-		System.out.println(toString(l1)+"+1+"+toString(l2)); 
+		System.out.println("L1: "+toString(l1)+" L2: "+toString(l2)); 
 		
 		getLastNode(l1).next = l2;
 		l2 = new ListNode();
+//		l2.element = Character.UNASSIGNED;
+//		l2.next = null;
+//		// Ok med: "l2 = new ListNode();" istället?
 		
-		System.out.println(toString(l1)+"+2+"+toString(l2)); 
+		System.out.println("L1: "+toString(l1)+" L2: "+toString(l2)); 
 
 		return l1;
-
-//		ListNode ptr;
-//		if(l1==null)
-//			return l2;
-//		if(l2==null)
-//			return l1;
-//			else{
-//				ptr=l1;
-//				while(ptr.next != null){
-//					ptr = ptr.next;
-//					
-//				}
-//				ptr.next = l2;
-//				return l1;
-//			}
 	}
 
 	// Testmetod: JunitListTest.testAddAll()

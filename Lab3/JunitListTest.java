@@ -215,34 +215,7 @@ public class JunitListTest {
 		Lists.contains(null,'x');
 	}
 
-////TODO	@Test
-//	public void testCopyUpperCase()
-//	{
-//		// Inject upper case letters randomly in the test strings.
-//		// Assert equal results when extracting the upper case chars from
-//		// the corresponding list, as wheen extracting them from the 
-//		// injected string itself.
-//		for ( String s : cases ) {
-//			String uppersAndLowers = randInjectUpper(s);
-//			// Extract the upper case characters
-//			StringBuilder uppers = new StringBuilder();
-//			for ( int i = 0; i < uppersAndLowers.length(); i++ ) {
-//				final char c = uppersAndLowers.charAt(i);
-//				if ( Character.isUpperCase(c) )
-//					uppers.append(c);
-//			}
-//			ListNode temp = Lists.toList(uppersAndLowers);
-//			ListNode lhs = Lists.copyUpperCase(temp);
-//			assertFalse(hasSharedNodes(temp,lhs));
-//			ListNode rhs = Lists.toList(uppers.toString());
-//			assertTrue(Lists.equals(lhs,rhs));
-//		}
-//	}
-////TODO
-//	@Test(expected = ListsException.class)
-//	public void testCopyUpperCaseWithException() {
-//		Lists.copyUpperCase(null);
-//	}
+
 
 	@Test
 	public void testAddFirst()
@@ -309,7 +282,9 @@ public class JunitListTest {
 		for ( String s1 : cases )
 			for ( String s2 : cases ) {
 				ListNode l1 = Lists.toList(s1);
-				ListNode l2 = Lists.toList(s2);   
+				System.out.println("L1"+Lists.toString(l1));
+				ListNode l2 = Lists.toList(s2);
+				System.out.println("L2"+Lists.toString(l2));
 				ListNode lhs = Lists.addAll(l1,l2);
 				assertTrue(Lists.equals(lhs,l1)); 
 				assertTrue(Lists.equals(lhs,Lists.toList(s1+s2))); 
