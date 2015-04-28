@@ -129,24 +129,25 @@ public class Lists {
 	// Testmetod: JunitListTest.testCopyUpperCase()
 
 	public static ListNode copyUpperCase(ListNode l){
+		Exception(l, "copyToUpperCase");
 
-		if ( l == null )
-			throw new ListsException("Lists: null passed to copy");
-		ListNode head,ptr1,ptr2;
-		head = new ListNode();             // Kopian
-		head.next = null;
-		ptr1 = head;
-
-		ptr2 = l.next;  // forsta listelementet i originallistan
-		while ( ptr2 != null ) {
-			ptr1.next = new ListNode();    // Ny nod i kopian
-			ptr1 = ptr1.next; //flytta fram
+		ListNode ptr1 = new ListNode();
+		ListNode ptr2 = new ListNode();
+		ListNode head = new ListNode();
+		head = ptr1;					//Huvud som returneras
+		
+		ptr2 = l.next; 	 					//Flyttar fram och pekar på första element			
+		
+		while ( ptr2 != null ) {			
 			if(Character.isUpperCase(ptr2.element)) {
-				ptr1.element = ptr2.element;   // Kopiera tecknet
-				ptr1.next = null;              // Avsluta
-				ptr2 = ptr2.next;              // Flytta fram i originallistan
+				ptr1.next = new ListNode();	// Skapa ny nod för detta tecken
+				ptr1 = ptr1.next;			// Hoppar fram till nya noden
+				ptr1.element = ptr2.element;// Kopiera tecknet till ny nod
+				ptr1.next = null;           // Avsluta lista
+				ptr2 = ptr2.next;           // Flytta fram i originallistan
 			}
 		}
+
 		return head;
 	}
 
