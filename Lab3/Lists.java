@@ -158,16 +158,34 @@ public class Lists {
 		ListNode head = new ListNode();
 		l.element = c; 
 		head.next = l;
-		
+
 		return head;
 	}
 
 	// This is a private utility method.
 	private static ListNode getLastNode(ListNode head) {
+		Exception(head, "getLastNode");
 		//Returnerar en referens till den sista noden i l (listhuvudet om l refererar till en tom lista.)
 		//Metoden muterar ej l.
+		
+		if(head.next == null){
+			return head;
+		}else{
+			ListNode last = new ListNode();
+			
+			while(head.next != null){
+				System.out.println("PRINT: " + head.element);
+				
+				last = head;
+				head = head.next;
+			}
+			System.out.println("RETUR: " + last.element);
+			
+			return last;
+		}
 
-		return null;
+
+		
 	}
 
 	// Testmetod: JunitListTest.testAddLast()
@@ -190,6 +208,9 @@ public class Lists {
 
 	// Testmetod: JunitListTest.testConcat()
 	public static ListNode concat(ListNode l1,ListNode l2) {
+		Exception(l1, "concat");
+		Exception(l2, "concat");
+
 		ListNode ptr;
 		if(l1==null)
 			return l2;
@@ -204,16 +225,40 @@ public class Lists {
 				ptr.next = l2;
 				return l1;
 			}
-		
-		
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
 	public static ListNode addAll(ListNode l1,ListNode l2) {
-		Exception(l1, "addAll");
-		Exception(l2, "addAll");
+		Exception(l1, "addAll l1");
+		Exception(l2, "addAll l2");
+
+		System.out.println(toString(l1)+" & "+toString(l2));
+		System.out.println(l2.element);
 		
-		getLastNode(l1).next = l2;
+		ListNode buffer = new ListNode();
+		buffer = copy(l2);
+		
+		System.out.println(toString(l1)+" & "+toString(l2));
+		
+		while(true){
+			getLastNode(l1).next = buffer.next;
+			
+			
+			
+//			l2 = l2.next;
+//			ListNode buffer = new ListNode();
+//			buffer.element = l2.element;
+//			buffer.next =l2.next;
+//			System.out.println(getLastNode(l1).element);
+//			getLastNode(l1).next = buffer;
+			if(buffer.next == null){
+				break;
+			}else{
+				buffer = buffer.next;
+			}
+		}
+
+		System.out.println(toString(l1)+" & "+toString(l2));
 
 		return l1;
 	}
@@ -221,8 +266,27 @@ public class Lists {
 	// Testmetod: JunitListTest.testReverse()
 	public static ListNode reverse(ListNode head) {
 		Exception(head, "reverse");
-		//TODO
-		return null;
+
+		//System.out.println("rev:"+ toString(head));
+
+		ListNode revl = new ListNode(); 
+		ListNode buffer = new ListNode();
+		buffer.next = null;
+		revl.next = null;
+
+
+		while(head.next != null){
+			head = head.next; 				// Steg fram lista 
+			revl.element = head.element; 	// Kopierar lista
+
+			buffer = revl;					//Sparar nod
+
+			revl = new ListNode();			//Skapar nästa nod
+			revl.next = buffer;				//Pekar på senaste noden
+
+		}
+
+		return revl;
 	}
 
 	private static void Exception(ListNode l, String s){

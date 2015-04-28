@@ -357,13 +357,13 @@ public class JunitListTest {
 		// addLast   = +
 		// (forall s in cases)(reverse(x:toList(s)) = (reverse(toList(s)))+x)
 		for ( String s : cases ) {
-			ListNode l = Lists.addFirst(Lists.toList(s),'X'); 
+			ListNode l = Lists.addFirst(Lists.toList(s),'Z'); 
 			ListNode lhs = Lists.reverse(l);
 			assertFalse(hasSharedNodes(lhs,l));
 			l = Lists.toList(s); 
 			ListNode l2 = Lists.reverse(l);
 			assertFalse(hasSharedNodes(l,l2));
-			assertTrue(Lists.equals(lhs,Lists.addLast(l2,'X')));
+			assertTrue(Lists.equals(lhs,Lists.addLast(l2,'Z')));
 		}
 	}
 
@@ -372,7 +372,6 @@ public class JunitListTest {
 		Lists.reverse(null);
 	}
 }
-
 
 
 
