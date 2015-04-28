@@ -167,27 +167,25 @@ public class Lists {
 		Exception(head, "getLastNode");
 		//Returnerar en referens till den sista noden i l (listhuvudet om l refererar till en tom lista.)
 		//Metoden muterar ej l.
-		ListNode last = new ListNode();
-
+		
 		if(head.next == null){
-			last = head;
+			return head;
 		}else{
-			head = head.next;
-			while(true){
-				System.out.println("Printade: " + head.element);
+			ListNode last = new ListNode();
+			
+			while(head.next != null){
+				System.out.println("PRINT: " + head.element);
+				
 				last = head;
-				
-				if(head.next == null){
-					break;
-				}
-				
 				head = head.next;
 			}
-			System.out.println("Returnerar: " + last.element);
+			System.out.println("RETUR: " + last.element);
+			
+			return last;
 		}
 
 
-		return last;
+		
 	}
 
 	// Testmetod: JunitListTest.testAddLast()
