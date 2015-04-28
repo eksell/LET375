@@ -1,4 +1,3 @@
-import java.io.ObjectInputStream.GetField;
 
 /**
  * A collection of utility functions for C style primitive list handling.
@@ -135,11 +134,10 @@ public class Lists {
 		ListNode ptr2 = new ListNode();
 		ListNode head = new ListNode();
 		head = ptr1;					//Huvud som returneras
-		
+
 		ptr2 = l; 	 					//Flyttar fram och pekar på första element			
-		
+
 		while ( ptr2 != null ) {
-			//System.out.println("1:HIT");
 			if(Character.isUpperCase(ptr2.element)) {
 				ptr1.next = new ListNode();	// Skapa ny nod för detta tecken
 				ptr1 = ptr1.next;			// Hoppar fram till nya noden
@@ -169,22 +167,21 @@ public class Lists {
 		Exception(head, "getLastNode");
 		//Returnerar en referens till den sista noden i l (listhuvudet om l refererar till en tom lista.)
 		//Metoden muterar ej l.
-		
+
 		if(head.next == null){
 			return head;
 		}else{
 			ListNode last = new ListNode();
-			
+
 			while(head.next != null){
-				//System.out.println("PRINT: " + head.element);
-				
-				last = head;
+
 				head = head.next;
+				last = head;
 			}
-			System.out.println("RETUR: " + last.element);
+
 			return last;
 		}
-	
+
 	}
 
 	// Testmetod: JunitListTest.testAddLast()
@@ -209,16 +206,9 @@ public class Lists {
 	public static ListNode concat(ListNode l1,ListNode l2) {
 		Exception(l1, "concat");
 		Exception(l2, "concat");
-		
-		System.out.println("L1: "+toString(l1)+" L2: "+toString(l2)); 
-		
-		getLastNode(l1).next = l2;
-		l2 = new ListNode();
-//		l2.element = Character.UNASSIGNED;
-//		l2.next = null;
-//		// Ok med: "l2 = new ListNode();" istället?
-		
-		System.out.println("L1: "+toString(l1)+" L2: "+toString(l2)); 
+
+		getLastNode(l1).next = l2.next;
+		l2.next = null;
 
 		return l1;
 	}
@@ -228,33 +218,9 @@ public class Lists {
 		Exception(l1, "addAll l1");
 		Exception(l2, "addAll l2");
 
-		System.out.println(toString(l1)+" & "+toString(l2));
-		System.out.println(l2.element);
-		
 		ListNode buffer = new ListNode();
 		buffer = copy(l2);
-		
-		System.out.println(toString(l1)+" & "+toString(l2));
-		
-		while(true){
-			getLastNode(l1).next = buffer.next;
-			
-			
-			
-//			l2 = l2.next;
-//			ListNode buffer = new ListNode();
-//			buffer.element = l2.element;
-//			buffer.next =l2.next;
-//			System.out.println(getLastNode(l1).element);
-//			getLastNode(l1).next = buffer;
-			if(buffer.next == null){
-				break;
-			}else{
-				buffer = buffer.next;
-			}
-		}
-
-		System.out.println(toString(l1)+" & "+toString(l2));
+		getLastNode(l1).next = buffer.next;
 
 		return l1;
 	}
