@@ -180,12 +180,9 @@ public class Lists {
 				head = head.next;
 			}
 			System.out.println("RETUR: " + last.element);
-			
 			return last;
 		}
-
-
-		
+	
 	}
 
 	// Testmetod: JunitListTest.testAddLast()
@@ -210,8 +207,15 @@ public class Lists {
 	public static ListNode concat(ListNode l1,ListNode l2) {
 		Exception(l1, "concat");
 		Exception(l2, "concat");
+		
+		System.out.println(toString(l1)+"+1+"+toString(l2)); 
+		
+		getLastNode(l1).next = l2;
+		l2 = new ListNode();
+		
+		System.out.println(toString(l1)+"+2+"+toString(l2)); 
 
-		return null;
+		return l1;
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
