@@ -202,9 +202,10 @@ public class Lists {
 					
 				}
 				ptr.next = l2;
+				return l1;
 			}
 		
-		return l1;
+		
 	}
 
 	// Testmetod: JunitListTest.testAddAll()
