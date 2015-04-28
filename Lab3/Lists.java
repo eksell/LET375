@@ -164,10 +164,30 @@ public class Lists {
 
 	// This is a private utility method.
 	private static ListNode getLastNode(ListNode head) {
+		Exception(head, "getLastNode");
 		//Returnerar en referens till den sista noden i l (listhuvudet om l refererar till en tom lista.)
 		//Metoden muterar ej l.
+		ListNode last = new ListNode();
 
-		return null;
+		if(head.next == null){
+			last = head;
+		}else{
+			head = head.next;
+			while(true){
+				System.out.println("Printade: " + head.element);
+				last = head;
+				
+				if(head.next == null){
+					break;
+				}
+				
+				head = head.next;
+			}
+			System.out.println("Returnerar: " + last.element);
+		}
+
+
+		return last;
 	}
 
 	// Testmetod: JunitListTest.testAddLast()
@@ -198,10 +218,36 @@ public class Lists {
 
 	// Testmetod: JunitListTest.testAddAll()
 	public static ListNode addAll(ListNode l1,ListNode l2) {
-		Exception(l1, "addAll");
-		Exception(l2, "addAll");
+		Exception(l1, "addAll l1");
+		Exception(l2, "addAll l2");
 
-		getLastNode(l1).next = l2;
+		System.out.println(toString(l1)+" & "+toString(l2));
+		System.out.println(l2.element);
+		
+		ListNode buffer = new ListNode();
+		buffer = copy(l2);
+		
+		System.out.println(toString(l1)+" & "+toString(l2));
+		
+		while(true){
+			getLastNode(l1).next = buffer.next;
+			
+			
+			
+//			l2 = l2.next;
+//			ListNode buffer = new ListNode();
+//			buffer.element = l2.element;
+//			buffer.next =l2.next;
+//			System.out.println(getLastNode(l1).element);
+//			getLastNode(l1).next = buffer;
+			if(buffer.next == null){
+				break;
+			}else{
+				buffer = buffer.next;
+			}
+		}
+
+		System.out.println(toString(l1)+" & "+toString(l2));
 
 		return l1;
 	}
@@ -210,25 +256,25 @@ public class Lists {
 	public static ListNode reverse(ListNode head) {
 		Exception(head, "reverse");
 
-		System.out.println("rev:"+ toString(head));
+		//System.out.println("rev:"+ toString(head));
 
 		ListNode revl = new ListNode(); 
 		ListNode buffer = new ListNode();
 		buffer.next = null;
 		revl.next = null;
-		
+
 
 		while(head.next != null){
 			head = head.next; 				// Steg fram lista 
 			revl.element = head.element; 	// Kopierar lista
-								
+
 			buffer = revl;					//Sparar nod
-			
+
 			revl = new ListNode();			//Skapar nästa nod
 			revl.next = buffer;				//Pekar på senaste noden
 
 		}
-		
+
 		return revl;
 	}
 

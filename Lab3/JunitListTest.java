@@ -357,7 +357,6 @@ public class JunitListTest {
 		// addLast   = +
 		// (forall s in cases)(reverse(x:toList(s)) = (reverse(toList(s)))+x)
 		for ( String s : cases ) {
-			System.out.println("1:"+s);
 			ListNode l = Lists.addFirst(Lists.toList(s),'Z'); 
 			ListNode lhs = Lists.reverse(l);
 			assertFalse(hasSharedNodes(lhs,l));
