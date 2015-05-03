@@ -1,4 +1,4 @@
-package maxsum;
+
 
 import java.util.Random;
 
@@ -46,15 +46,19 @@ public class MaxSumTwoDimensions {
     
     	int maxSum = 0;
     for(int i = 0; i < a.length; i++)
-    	for(int j= 0; j< a[0].length; j++)
-    		for(int k = 0; k < a.length; k++)
-    			for(int l= 0; l< a[0].length; l++){
-    				int thisSum = 0;
-    				for( int m = i; m <= k; m++)
-    					thisSum+= a[i][j];
+    	for(int j= 0; j< a[0].length; j++){
+    		int thisSum= 0;
+    		for(int k = i;k < a.length; k++)
+    			for(int l = j; l< a[0].length; l++){
+    				
+    				thisSum += a[k][l];
     				if(thisSum > maxSum)
     					maxSum = thisSum;
     			}
+    				
+    			
+    	}
+    		
         return maxSum;
        
     }*/
@@ -76,7 +80,7 @@ public class MaxSumTwoDimensions {
     private static void test(int[][] m) {
 // Uncomment as you proceed!
 //         System.out.println("EvenBetter: "+maxSubMatrixSumEvenBetter(m));
- //        System.out.println("Better: "+maxSubMatrixSumBetter(m));
+    //     System.out.println("Better: "+maxSubMatrixSumBetter(m));
        System.out.println("Bad: "+maxSubMatrixSumBad(m));
     }
     
