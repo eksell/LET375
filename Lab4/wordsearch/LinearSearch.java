@@ -1,3 +1,4 @@
+package wordsearch;
 
 public class LinearSearch extends Search {
 

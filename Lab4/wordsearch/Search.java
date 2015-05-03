@@ -1,3 +1,5 @@
+package wordsearch;
+
 import java.util.Calendar;
 
 public abstract class Search {

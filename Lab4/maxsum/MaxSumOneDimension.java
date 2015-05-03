@@ -1,3 +1,5 @@
+package maxsum;
+
 import java.util.Random;
 
 public final class MaxSumOneDimension
