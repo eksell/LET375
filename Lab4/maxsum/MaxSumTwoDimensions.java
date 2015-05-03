@@ -14,37 +14,51 @@ public class MaxSumTwoDimensions {
     // A couple of two dimensional algorithms for rectangular matrixes.
     
     // O(n^6)
-    /*public static int maxSubMatrixSumBad( int[][] a ) {
+    public static int maxSubMatrixSumBad( int[][] a ) {
     	int maxSum = 0;
-    	for(int i = 0; i < a.length; i++){
-    		for (int j = 0; j < a.length; j++){
-    			for(int k = i; k < a.length; k++){
-    				for (int l = j; l < a.length; l++){
+    	for(int i = 0; i < a.length; i++)
+    		for (int j = 0; j < a[0].length; j++)
+    			for(int k = i; k < a.length; k++)
+    				for (int l = j; l < a[0].length; l++){
     					int thisSum = 0;
-    					for(int m = i; m <= k; m++){    						
-    						for(int n = j; n <= l; n++){
+    					for(int m = i; m <= k; m++)    						
+    						for(int n = j; n <= l; n++)
     							thisSum += a[m][n];
-    							if(thisSum > maxSum){
+    							if(thisSum > maxSum)
         							maxSum = thisSum;
-        						}
+        						
     						}
     						
-    					}
+    					
+    				
+    			
+    		
+    		
+    	
+       return maxSum;
+       
+    }
+ 
+    // O(n^5)
+   /* public static int maxSubMatrixSumBetter( int[][] a ) {
+    
+    	int maxSum = 0;
+    	for(int i = 0; i < a.length; i++){
+    		for(int j = 0; j <a[0].length; j++){
+    			int thisSum = 0;
+    			for(int k = i; k < a.length; k++){
+    				for(int l = j; l < a[0].length; l++){
+    					thisSum += a[k][l];
+    					if(thisSum>maxSum)
+    						maxSum = thisSum;
     				}
     			}
     		}
     	}
-        // ...
-        return maxSum;
-    }*/
- 
-    // O(n^5)
-    public static int maxSubMatrixSumBetter( int[][] a ) {
-    
 
-        return 0;
+        return maxSum;
        
-    }
+    }*/
     
     // O(n^4)
     public static int maxSubMatrixSumEvenBetter( int[][] a ) {
@@ -63,8 +77,8 @@ public class MaxSumTwoDimensions {
     private static void test(int[][] m) {
 // Uncomment as you proceed!
 //         System.out.println("EvenBetter: "+maxSubMatrixSumEvenBetter(m));
-//         System.out.println("Better: "+maxSubMatrixSumBetter(m));
- //       System.out.println("Bad: "+maxSubMatrixSumBad(m));
+  //       System.out.println("Better: "+maxSubMatrixSumBetter(m));
+       System.out.println("Bad: "+maxSubMatrixSumBad(m));
     }
     
     public static void main(String[] arg) {
