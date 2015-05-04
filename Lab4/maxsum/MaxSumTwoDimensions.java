@@ -11,76 +11,82 @@ import java.util.Random;
 public class MaxSumTwoDimensions {
 
 
-    private static Random random = new Random();
-    
-    
-    // A couple of two dimensional algorithms for rectangular matrixes.
-    
-    // O(n^6)
-    public static int maxSubMatrixSumBad( int[][] a ) {
-    	int maxSum = 0;
-    	for(int r1 = 0; r1 < a.length; r1++)
-    		for (int c1 = 0; c1 < a[0].length; c1++)
-    			for(int r2 = r1; r2 < a.length; r2++)
-    				for (int c2 = c1; c2 < a[0].length; c2++){
-    					int thisSum = 0;
-    					for(int r3 = r1; r3 <= r2; r3++)    						
-    						for(int c3 = c1; c3 <= c2; c3++)
-    							thisSum += a[r3][c3];
-    							if(thisSum > maxSum)
-        							maxSum = thisSum;
-        						
-    						}
-  				
-       return maxSum;
-       
-    }
- 
-    // O(n^5)
-    public static int maxSubMatrixSumBetter( int[][] a ) {
-    
-    int maxSum = 0;
-    for(int r1 = 0; r1 < a.length; r1++)
-    	for(int r2= r1; r2 < a.length; r2++)
-    		for(int c1 = 0; c1 < a[0].length; c1++){
-    			int thisSum= 0;
-    			for(int c2 = c1; c2 < a[0].length; c2++){
-    				for(int r3 = r1; r3 <= r2; r3++){
-    				thisSum += a[r3][c2];
-    				
-    				}
-    				maxSum = Math.max( maxSum, thisSum );
-    			}
-    		}		
-    			
-    	
-    	
-        return maxSum;
-    }
-    
+	private static Random random = new Random();
+
+
+	// A couple of two dimensional algorithms for rectangular matrixes.
+
+	// O(n^6)
+	public static int maxSubMatrixSumBad( int[][] a ) {
+		int maxSum = 0;
+		for(int r1 = 0; r1 < a.length; r1++)
+			for (int c1 = 0; c1 < a[0].length; c1++)
+				for(int r2 = r1; r2 < a.length; r2++)
+					for (int c2 = c1; c2 < a[0].length; c2++){
+						int thisSum = 0;
+						for(int r3 = r1; r3 <= r2; r3++)    						
+							for(int c3 = c1; c3 <= c2; c3++)
+								thisSum += a[r3][c3];
+						if(thisSum > maxSum)
+							maxSum = thisSum;
+
+					}
+
+		return maxSum;
+
+	}
+
+	// O(n^5)
+	public static int maxSubMatrixSumBetter( int[][] a ) {
+
+		int maxSum = 0;
+		for(int r1 = 0; r1 < a.length; r1++)
+			for(int r2= r1; r2 < a.length; r2++)
+				for(int c1 = 0; c1 < a[0].length; c1++){
+					int thisSum= 0;
+					for(int c2 = c1; c2 < a[0].length; c2++){
+						for(int r3 = r1; r3 <= r2; r3++){
+							thisSum += a[r3][c2];
+
+						}
+						maxSum = Math.max( maxSum, thisSum );
+					}
+				}
+
+		return maxSum;
+	}
+
 	// O(n^4)
 	public static int maxSubMatrixSumEvenBetter( int[][] a ) {
-			
-		int maxSum = 0;
+
+
+
+		//Fungerar ej, behöver flytta med positionerna och nolla rad/colonvärdena när ackumulerat värde blir negativt. 
+		// Med tanke på att det är O(n^4) så får man troligen löpa igenom iaf åt ena hållet innan man stegar, ~n^3 nu...  
+		//GLÖM EJ TA BORT GEMENSAMA RAD OCH COL- ELEMENTET
+
+		int max = 0;
+		int row = 0;
+		int col = 0;
+		int colMax = 0;
 		
-		int maxRow = 0;
-		int thisRow = 0;
-		for(int r = 0; r <a.length;r++){
-			int maxCol = 0;
-			int thisCol = 0;
+		for(int r2 = 0; r2 < a.length;r2++){
 			
-			for( int c = 0; c < a[r].length; c++ ) {
+			for(int c2 = 0; c2 < a[0].length;c2++){
 				
-				//Fungerar ej, behöver flytta med positionerna och nolla rad/colonvärdena när ackumulerat värde blir negativt. 
-				// Med tanke på att det är O(n^4) så får man troligen löpa igenom iaf åt ena hållet innan man stegar, ~n^3 nu...  
-				
-				thisCol = Math.max( 0, thisCol + a[r][c] );
-				thisRow = Math.max( thisRow, thisRow + thisCol);
-				maxSum = Math.max( maxRow, thisRow );
+				for(int r1 = 0; r1 < a.length;r1++){ //Run to row 
+					
+					max = Math.max(max, row);	// Save largest attained value.
+					row = Math.max( 0, row+col);	//Keep value if larger than  0 else set 0.
+
+					for( int c1 = 0; c1 < a[0].length; c1++ ){ //Run to column 
+						col = col+a[r1][c1];
+					}
+				}
 			}
 		}
-			
-		return maxSum;
+
+		return max;
 		// maxSum innehåller nu resultatet
 
 	}
@@ -96,7 +102,7 @@ public class MaxSumTwoDimensions {
 	private static void test(int[][] m) {
 		// Uncomment as you proceed!
 		System.out.println("EvenBetter: "+maxSubMatrixSumEvenBetter(m));
-		//       System.out.println("Better: "+maxSubMatrixSumBetter(m));
+		System.out.println("Better: "+maxSubMatrixSumBetter(m));
 		System.out.println("Bad: "+maxSubMatrixSumBad(m));
 	}
 
