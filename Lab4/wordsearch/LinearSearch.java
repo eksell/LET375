@@ -1,5 +1,3 @@
-package wordsearch;
-
 public class LinearSearch extends Search {
 
     public int search( String[] a, String x ) {

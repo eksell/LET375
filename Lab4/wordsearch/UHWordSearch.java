@@ -1,5 +1,3 @@
-package wordsearch;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
@@ -32,14 +30,15 @@ public class UHWordSearch {
     private final boolean PREFIX_TESTING = false;	// turns prefix testing on/off, on => binary search
     private boolean BINARY_SEARCH = false;			// true => binary search, false => linear search
    
-    /**
+    /** src/dictionary.txt
      * Constructor for WordSearch class.
      * Prompts for and reads puzzle and dictionary files.
      */
     public UHWordSearch( ) throws IOException
     {
-        puzzleStream = openFile( "Enter puzzle file" );
+    	puzzleStream = openFile( "Enter puzzle file");
         wordStream   = openFile( "Enter dictionary name" );
+        
         System.out.println( "Reading files..." );
         readPuzzle( );
         readWords( );
@@ -48,7 +47,7 @@ public class UHWordSearch {
         if ( PREFIX_TESTING )
         	BINARY_SEARCH = true;
     }
-
+    									
     /**
      * Routine to solve the word search puzzle.
      * Performs checks in all eight directions.
