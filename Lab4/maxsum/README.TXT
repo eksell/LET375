@@ -57,3 +57,10 @@ Algorithm #2	N = 100000, time = 2651000 microsec
 
 Algorithm #3	N = 1000000, time = 17707 microsec
 Algorithm #4	N = 1000000, time = 50075 microsec
+
+Svar uppgift 5
+
+1. Datorns prestanda, vilken algoritm som används, pusselstorlek, genomlöpning av bokstavsmatrisen måste ske oavsett och på samma sätt kräver solveDirection en genomlöpning av alla riktningar (genomlöpning start rad 60 samt riktningsgenomlöpning start rad 85).
+2. Dubbelt så lång tid om pusslet fördubblas, för tillhandahållna pussel (vars dimensioner fördubblas) ökar tiden exponentiellt (2^n).
+3. Binärsökning samt binärsökning med prefix fyrdubblar sin beräkningstid vid fördubbling av dimensioner. Linjärsökningen blir snabbt ineffektiv med tanke på det stora antal jämförelser mellan bokstavskombinationer och ordlista.
+4. Vi får inga intressanta värden på binärsökningarna vid mindre matriser (upp till 32 x 32) pga snabb dator, Linjärsökning drar över 5 min redan vid 128, vid inläsning av största matrisen så klarar inte eclipse att lagra matrisen i en array och ger en MemoryHeap error.
