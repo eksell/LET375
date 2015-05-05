@@ -1,4 +1,3 @@
-package maxsum;
 
 import java.util.Random;
 
@@ -66,22 +65,20 @@ public class MaxSumTwoDimensions {
 		//GLÖM EJ TA BORT GEMENSAMA RAD OCH COL- ELEMENTET
 
 		int max = 0;
-		int row = 0;
-		int col = 0;
-		int colMax = 0;
 		
-		for(int r2 = 0; r2 < a.length;r2++){
-			
-			for(int c2 = 0; c2 < a[0].length;c2++){
+		for(int r1 = 0; r1 < a.length;r1++){ //Run to row 
+			for( int r2 = r1; r2 < a.length; r2++ ){ //Run to column 
+				//Above will run through the whole matrix
+				int currentSum = 0;
 				
-				for(int r1 = 0; r1 < a.length;r1++){ //Run to row 
-					
-					max = Math.max(max, row);	// Save largest attained value.
-					row = Math.max( 0, row+col);	//Keep value if larger than  0 else set 0.
-
-					for( int c1 = 0; c1 < a[0].length; c1++ ){ //Run to column 
-						col = col+a[r1][c1];
+				for(int col = 0; col < a[0].length;col++){
+					for(int run = r1; run <= r2;run++){ //Run from r1 to end
+						//Run from c1 to end
+						currentSum = currentSum+a[run][col];
 					}
+					
+					currentSum = Math.max( 0, currentSum);	//Keep value if larger than  0 else set 0.
+					max = Math.max(max, currentSum);	// Save largest attained value.
 				}
 			}
 		}

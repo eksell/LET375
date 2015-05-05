@@ -1,4 +1,3 @@
-package maxsum;
 
 import java.util.Random;
 
