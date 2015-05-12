@@ -8,9 +8,20 @@ import java.io.IOException;
 public class LinearRecursion {
 	// A.1
 	public static void reverseInput() {
-		// toDo 
-	}
-
+    	char store;
+    	
+    	try{
+    		store = (char) System.in.read();
+    		if(!(store == '\n')){
+    			reverseInput();
+    			System.out.print(store);
+    		}
+    		
+    	}
+    	catch (IOException e){
+    		e.printStackTrace();
+    	}
+    }
 	// A.2
 	public static int multiply(int m,int n) {
 		// toDo 
