@@ -85,12 +85,8 @@ public class LinearRecursion {
 		
 		if(l == null)
 			return null;
-		
-		if(l.next == null)
-
-			return cons(l.element, null);
 		else
-		return cons(l.element,copy(l.next));
+			return cons(l.element,copy(l.next));
 				
 	}
 
@@ -107,15 +103,13 @@ public class LinearRecursion {
 //		cons(1,cons(2,cons(3,cons(4,cons(5,null)))))
 //		Tips: Definiera funktionen med rekursion över den första listan och utnyttja funktionen copy i
 //		den förra uppgiften på lämpligt sätt.>
-
-		if(l1.next == null){ //Basfall: noden jag står på är knytpunkten
-			l1.next = l2;
-		} 
-		else{ // Annars stega mot ändpukt på första listan
-			append(l1.next, l2);
-		}
 		
-		return copy(l1);
+		
+		if(l1 == null) return copy(l2);//Om tom lista
+		
+		else{ // Annars stega mot ändpukt på första listan
+			return cons(l1.element, append(l1.next, l2));
+		}
 	}
 
 	/**********************************************
@@ -134,9 +128,9 @@ public class LinearRecursion {
 //		System.out.println(multiply(0,7));
 //		System.out.println(multiply(5,0));
 		// A.3
-		      System.out.println(countDigits(0));
-		      System.out.println(countDigits(5));
-		      System.out.println(countDigits(123));
+//		      System.out.println(countDigits(0));
+//		      System.out.println(countDigits(5));
+//		      System.out.println(countDigits(123));
 		                
 		        // An array of some test lists
 		        ListNode[] ll = {
@@ -149,24 +143,24 @@ public class LinearRecursion {
 		         System.out.println("test copy");
 		         for ( int i = 0; i < ll.length; i++ ) {
 		             ListNode l = cons(999,copy(ll[i]));
+//		             print("l",l);       // result
+//		             print("l"+i,ll[i]); // original should be untouched
+		         }
+		 //A.5     
+		         System.out.println("test append from left"); 
+		         for ( int i = 0; i < ll.length - 1; i++ ) {
+		             ListNode l = append(ll[i],ll[ll.length-1]);
 		             print("l",l);       // result
 		             print("l"+i,ll[i]); // original should be untouched
+		             print("l"+(ll.length-1),ll[ll.length-1]); // original should be untouched
 		         }
-		// A.5     
-		//         System.out.println("test append from left"); 
-		//         for ( int i = 0; i < ll.length - 1; i++ ) {
-		//             ListNode l = append(ll[i],ll[ll.length-1]);
-		//             print("l",l);       // result
-		//             print("l"+i,ll[i]); // original should be untouched
-		//             print("l"+(ll.length-1),ll[ll.length-1]); // original should be untouched
-		//         }
 
-		//         System.out.println("test append from right"); 
-		//         for ( int i = 0; i < ll.length - 1; i++ ) {
-		//             ListNode l = append(ll[ll.length-1],ll[i]);
-		//             print("l",l);       // result
-		//             print("l"+(ll.length-1),ll[ll.length-1]); // original should be untouched
-		//             print("l"+i,ll[i]); // original should be untouched
-		//         }
+		         System.out.println("test append from right"); 
+		         for ( int i = 0; i < ll.length - 1; i++ ) {
+		             ListNode l = append(ll[ll.length-1],ll[i]);
+		             print("l",l);       // result
+		             print("l"+(ll.length-1),ll[ll.length-1]); // original should be untouched
+		             print("l"+i,ll[i]); // original should be untouched
+		         }
 	}
 }
