@@ -97,7 +97,25 @@ public class LinearRecursion {
 	// A.5  
 	public static ListNode append( ListNode l1, ListNode l2 ) {
 		// toDo
-		return null;
+		
+//		Konstruera en rekursiv funktion som givet två listor returnerar en ny lista som innehåller båda
+//		listornas element. Funktionen skall ha signaturen
+//		public static ListNode append(ListNode l1,ListNode l2)
+//		Till exempel skall
+//		append(cons(1,cons(2,cons(3,null))), cons(4,cons(5,null)))
+//		returnera en lista med likadant innehåll som
+//		cons(1,cons(2,cons(3,cons(4,cons(5,null)))))
+//		Tips: Definiera funktionen med rekursion över den första listan och utnyttja funktionen copy i
+//		den förra uppgiften på lämpligt sätt.>
+
+		if(l1.next == null){ //Basfall: noden jag står på är knytpunkten
+			l1.next = l2;
+		} 
+		else{ // Annars stega mot ändpukt på första listan
+			append(l1.next, l2);
+		}
+		
+		return copy(l1);
 	}
 
 	/**********************************************
