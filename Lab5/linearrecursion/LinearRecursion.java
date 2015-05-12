@@ -45,7 +45,18 @@ public class LinearRecursion {
 	// A.3
 	public static int countDigits(int n) {
 		// toDo 
-		return 0;
+	
+//		Konstruera en rekursiv funktion som returnerar antalet decimala siffror i ett ickenegativt heltal.
+//		Funktionen skall ha signaturen
+//		public static int countDigits(int n)
+//		och den får endast använda operatorerna + och / (heltalsdivision). Glöm inte att 0 är ett ensiffrigt
+//		tal!
+		
+		
+		if(n>=10)
+			return 1+ countDigits(n/10);
+		else 
+			return 1;
 	}
 
 	public static ListNode cons( int element, ListNode l ) {
@@ -90,24 +101,24 @@ public class LinearRecursion {
 		//     reverseInput();
 		//     System.out.println();
 		// A.2
-		System.out.println(multiply(5,7));
-		System.out.println(multiply(-5,7));
-		System.out.println(multiply(5,-7));
-		System.out.println(multiply(-5,-7));
-		System.out.println(multiply(0,7));
-		System.out.println(multiply(5,0));
+//		System.out.println(multiply(5,7));
+//		System.out.println(multiply(-5,7));
+//		System.out.println(multiply(5,-7));
+//		System.out.println(multiply(-5,-7));
+//		System.out.println(multiply(0,7));
+//		System.out.println(multiply(5,0));
 		// A.3
-		//      System.out.println(countDigits(0));
-		//      System.out.println(countDigits(5));
-		//      System.out.println(countDigits(123));
-		//                
-		//        // An array of some test lists
-		//        ListNode[] ll = {
-		//            null,
-		//            cons(1,null),
-		//            cons(2,cons(3,null)),
-		//            cons(4,cons(5,cons(6,null)))
-		//        };
+		      System.out.println(countDigits(0));
+		      System.out.println(countDigits(5));
+		      System.out.println(countDigits(123));
+		                
+		        // An array of some test lists
+		        ListNode[] ll = {
+		            null,
+		            cons(1,null),
+		            cons(2,cons(3,null)),
+		            cons(4,cons(5,cons(6,null)))
+		        };
 		// A.4      
 		//         System.out.println("test copy");
 		//         for ( int i = 0; i < ll.length; i++ ) {
