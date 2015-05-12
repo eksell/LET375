@@ -58,13 +58,13 @@ public class Mobile {
 	public void flatten()  {
 		
 	      if(isSimple()){ //basfall
-	      System.out.print(getWeight());
+	      System.out.print(getWeight()+" ");
 	      }
 	      
 	      else{
-	    	  
+	    left.flatten();	  
 	    right.flatten();
-	      left.flatten();
+	      
 	      }
 	}
 	      
@@ -72,7 +72,23 @@ public class Mobile {
 	
 //	Print a structured view of the mobile
 	public void prettyPrint() {
-	      // ...
+		if(isSimple()){ //basfall
+		      System.out.print("("+getWeight()+")");
+		      }
+		      
+		      else{
+		    	  
+		    System.out.print("[");
+		    left.prettyPrint();
+		    System.out.print(",");
+		    System.out.print(leftLength);
+		    System.out.print(",");
+		    right.prettyPrint();
+		    System.out.print(",");
+		    System.out.print(rightLength);
+		    System.out.print("]");
+		      }
+	      
 	}
 	
 // Determine if the mobile is balanced
@@ -114,7 +130,7 @@ public class Mobile {
 
 		System.out.println("Height:     " + m.getHeight() );
 		m.flatten(); System.out.println();
-		//m.prettyPrint(); System.out.println();
+		m.prettyPrint(); System.out.println();
 		if ( m.isBalanced() )
 			System.out.println("Balanced!");
 		else
