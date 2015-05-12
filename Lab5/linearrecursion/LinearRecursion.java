@@ -14,7 +14,23 @@ public class LinearRecursion {
 // A.2
     public static int multiply(int m,int n) {
         // toDo 
-        return 0;
+    	
+    	//		Basfall: 0 
+    	//    	0 x n = 0
+    	//    	(m + 1) x n = n + (m x n)
+    	//    	(-m) x n = - (m x n)
+    	
+    	if(m!=0){
+    		if(m<=0)
+    			multiply(m-1,n);
+    		if(m>=0)
+    			multiply(m+1,n);
+    	}else{
+    		return 0;
+    	}
+    	
+   
+    	return n;
     } 
     
 // A.3
@@ -62,27 +78,27 @@ public class LinearRecursion {
  * ********************************************/
     public static void main(String[] args) throws IOException {
 // A.1
-     reverseInput();
-     System.out.println();
+//     reverseInput();
+//     System.out.println();
 // A.2
-//      System.out.println(multiply(5,7));
-//      System.out.println(multiply(-5,7));
-//      System.out.println(multiply(-5,7));
-//      System.out.println(multiply(-5,-7));
-//      System.out.println(multiply(0,7));
-//      System.out.println(multiply(5,0));
+      System.out.println(multiply(5,7));
+      System.out.println(multiply(-5,7));
+      System.out.println(multiply(-5,7));
+      System.out.println(multiply(-5,-7));
+      System.out.println(multiply(0,7));
+      System.out.println(multiply(5,0));
 // A.3
 //      System.out.println(countDigits(0));
 //      System.out.println(countDigits(5));
 //      System.out.println(countDigits(123));
-                
-        // An array of some test lists
-        ListNode[] ll = {
-            null,
-            cons(1,null),
-            cons(2,cons(3,null)),
-            cons(4,cons(5,cons(6,null)))
-        };
+//                
+//        // An array of some test lists
+//        ListNode[] ll = {
+//            null,
+//            cons(1,null),
+//            cons(2,cons(3,null)),
+//            cons(4,cons(5,cons(6,null)))
+//        };
 // A.4      
 //         System.out.println("test copy");
 //         for ( int i = 0; i < ll.length; i++ ) {

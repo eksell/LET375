@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE:	Linear Recursion
+PURPOSE OF PROJECT: Learn to use and construct recursive programs.
+VERSION or DATE:	080515
 HOW TO START THIS PROJECT:
-AUTHORS:
+AUTHORS: Anton Eksell	
 USER INSTRUCTIONS:
