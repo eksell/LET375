@@ -2,8 +2,8 @@ package linearrecursion;
 
 import java.io.IOException;
 /**
- * @author NN
- * @version 2012-05-
+ * @author Anna Abri and Anton Eksell Group 21
+ * @version 2012-05-13
  */
 public class LinearRecursion {
 	// A.1
@@ -118,19 +118,19 @@ public class LinearRecursion {
 	 * ********************************************/
 	public static void main(String[] args) throws IOException {
 		// A.1
-		//     reverseInput();
-		//     System.out.println();
+		     reverseInput();
+		     System.out.println();
 		// A.2
-//		System.out.println(multiply(5,7));
-//		System.out.println(multiply(-5,7));
-//		System.out.println(multiply(5,-7));
-//		System.out.println(multiply(-5,-7));
-//		System.out.println(multiply(0,7));
-//		System.out.println(multiply(5,0));
+	System.out.println(multiply(5,7));
+		System.out.println(multiply(-5,7));
+		System.out.println(multiply(5,-7));
+		System.out.println(multiply(-5,-7));
+		System.out.println(multiply(0,7));
+		System.out.println(multiply(5,0));
 		// A.3
-//		      System.out.println(countDigits(0));
-//		      System.out.println(countDigits(5));
-//		      System.out.println(countDigits(123));
+		      System.out.println(countDigits(0));
+		      System.out.println(countDigits(5));
+		      System.out.println(countDigits(123));
 		                
 		        // An array of some test lists
 		        ListNode[] ll = {

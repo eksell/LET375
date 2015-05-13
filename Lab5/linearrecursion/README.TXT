@@ -8,5 +8,5 @@ PROJECT TITLE:	Linear Recursion
 PURPOSE OF PROJECT: Learn to use and construct recursive programs.
 VERSION or DATE:	080515
 HOW TO START THIS PROJECT:
-AUTHORS: Anton Eksell	
-USER INSTRUCTIONS:
+AUTHORS: Anton Eksell and Anna Abri group 21	
+USER INSTRUCTIONS: Run program and make sure given results from test cases conform with expected results. 

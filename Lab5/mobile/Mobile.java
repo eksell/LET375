@@ -3,6 +3,13 @@ package mobile;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * 
+ * @author Anna Abri and Anton Eksell group 21
+ * @version 2015-05-13
+ *
+ */
+
 public class Mobile {
 	
 	private enum MobileType { SIMPLE, COMPOSITE }
