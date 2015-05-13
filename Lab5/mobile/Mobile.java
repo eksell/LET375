@@ -102,14 +102,32 @@ public class Mobile {
 
 // Determine if two mobiles are equal	
 	public boolean equals(  Mobile rhs ) {
-	    // ...
-	    return false;
+		double eps = 0.0000001;
+		Mobile m = (Mobile) rhs;
+		
+		if(!(rhs instanceof Mobile))
+			return false;
+			
+		
+	    if(isSimple() != m.isSimple())
+	    	return false;
+	    
+	    if(isSimple())
+			return Math.abs(getWeight() - m.getWeight()) < eps;
+	    else 
+			return (leftLength - m.leftLength) < eps && (rightLength - m.rightLength) < eps
+					&& left.equals(m.left) && right.equals(m.right);
+			
+	    
+	    	
 	}
 	
 //	Return a clone of this mobile
 	public Mobile clone() {
-         // ...
-         return null;
+         if(isSimple())
+        	 return new Mobile(weight);
+         return new Mobile(left.clone(), leftLength, right.clone(), rightLength);
+      
 	}
 	
 // Change this mobile to its mirror image
@@ -135,7 +153,7 @@ public class Mobile {
 			System.out.println("Balanced!");
 		else
 			System.out.println("Not balanced!");
-/*		
+		
 		Mobile m22 = new Mobile( new Mobile( 2 ), 6,  new Mobile( 3 ), 4 ),
 		       m3 = new Mobile( m1, 10, m22, 2 );
 		if ( m.equals(m3) )
@@ -158,6 +176,6 @@ public class Mobile {
 		m.prettyPrint(); System.out.println();
 		m.mirror();
 		m.prettyPrint(); System.out.println();
-*/
+
 	}
 }
