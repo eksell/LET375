@@ -80,6 +80,10 @@ public class BoardDisplay extends Board implements Observer {
 	}
 	    
 	public void update(Observable o, Object arg) {
-//		 Develop this method!
+		if(o instanceof Maze){
+			if (arg instanceof Integer)
+				fillCell((Integer)arg);
+		}
+
 	}
 }
