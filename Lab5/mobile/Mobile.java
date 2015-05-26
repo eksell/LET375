@@ -139,7 +139,21 @@ public class Mobile {
 	
 // Change this mobile to its mirror image
 	public void mirror() {
-         // ...
+         if(isSimple())
+        	 return;
+         else{
+        	 right.mirror();
+        	 left.mirror();
+        	 
+        	 Mobile tempMobile = right;
+        	 float tempLength = rightlength;
+        	 right = left;
+        	 rightlength = leftlength;
+        	 left = tempMobile;
+        	 leftlength = tempLength;
+        	 
+        			
+         }
 	}
 	
 	private boolean isSimple() { 

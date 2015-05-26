@@ -79,7 +79,7 @@ public class BoardDisplay extends Board implements Observer {
 		canvas.drawLine( colOffset + c1, rowOffset + r1, colOffset + c2, rowOffset + r2 );
 	}
 	    
-	public void update(Observable o, Object arg) {
+	public void update(Observable o, Object arg) {// not completed
 		if(o instanceof Maze){
 			if (arg instanceof Integer)
 				fillCell((Integer)arg);
