@@ -1,3 +1,4 @@
+package model_nail;
 
 public class Point {
 	public Point( int row , int col ) {

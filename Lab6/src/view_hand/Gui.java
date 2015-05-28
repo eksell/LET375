@@ -1,11 +1,12 @@
+package view_hand;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
 import java.io.File;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;

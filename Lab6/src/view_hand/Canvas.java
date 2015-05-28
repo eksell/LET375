@@ -1,3 +1,4 @@
+package view_hand;
 import javax.swing.*;
 import java.awt.*;
 

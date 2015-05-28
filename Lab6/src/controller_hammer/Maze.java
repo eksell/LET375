@@ -1,3 +1,7 @@
+package controller_hammer;
+import model_nail.Board;
+import model_nail.DisjointSets;
+
 
 public class Maze extends Board {
 	
@@ -16,16 +20,16 @@ public class Maze extends Board {
     	 notifyObservers();
     	 
     	 int knockedWalls = 0;
-    	 while(knockedWalls < (maxCell-1))
+    	 //while(knockedWalls < (maxCell-1)();//TODO
     }
     
-    public void search() { //not completed
+    public void search() { //not completed TODO
     	 graph.unweighted(0);
-    	 List<Integer> list = graph.getPath(maxCell-1);
-    	 for(Integer i : list){
-    		 setChanged();
-    		 notifyObservers(i);
-    	 }
+//	     List<Integer> list = graph.getPath(maxCell-1);
+//    	 for(Integer i : list){
+//    		 setChanged();
+//    		 notifyObservers(i);
+//    	 }
     }
     
 //    ...

@@ -4,13 +4,13 @@ import java.awt.geom.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class BoardDisplay extends Board implements Observer {
+public class BoardDisplay_Submit extends Board implements Observer {
 	
 	private int gridSize, rowOffset, colOffset;
 	private Color bkColor, lineColor, pathColor;
 	private Canvas canvas;
 	
-	public BoardDisplay(Canvas canvas, int maxRow, int maxCol) {
+	public BoardDisplay_Submit(Canvas canvas, int maxRow, int maxCol) {
 		super(maxRow, maxCol);
 		this.canvas = canvas;
 		bkColor = Color.lightGray; 
