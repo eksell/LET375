@@ -6,7 +6,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import model_nail.*;
-import view_hand.Canvas;
 
 public class BoardDisplay extends Board implements Observer {
 	

@@ -1,4 +1,4 @@
-package model_nail;
+package controller_hammer;
 
 public class Point {
 	public Point( int row , int col ) {

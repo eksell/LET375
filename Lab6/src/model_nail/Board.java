@@ -1,6 +1,8 @@
 package model_nail;
 import java.util.Observable;
 
+import controller_hammer.Point;
+
 // Maze should inherit Observable, but Java does not allow multiple inheritance, 
 // so i goes here instead. 
 

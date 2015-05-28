@@ -1,6 +1,6 @@
-package controller_hammer;
-import model_nail.Board;
-import model_nail.DisjointSets;
+package model_nail;
+
+import controller_hammer.DisjointSets;
 
 
 public class Maze extends Board {

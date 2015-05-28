@@ -6,6 +6,8 @@ import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import controller_hammer.Canvas;
+
 import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class Gui
                     "About Maze", 
                     JOptionPane.INFORMATION_MESSAGE);
     }
-    
+        
     private void showMessage(String message)
     {
         JOptionPane.showMessageDialog(frame, 
