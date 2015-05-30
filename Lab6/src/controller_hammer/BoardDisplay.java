@@ -5,6 +5,7 @@ import java.awt.geom.*;
 import java.util.Observable;
 import java.util.Observer;
 
+import view_hand.Canvas;
 import model_nail.*;
 
 public class BoardDisplay extends Board implements Observer {
@@ -27,6 +28,10 @@ public class BoardDisplay extends Board implements Observer {
 		// compute offset to center it
 		rowOffset = (height-maxRow*gridSize)/2 + 2;
 		colOffset = (width-maxCol*gridSize)/2 + 2;
+		
+		//Added
+		System.out.println("BoardDisp Construct");
+		addObserver(this);
 	}
 	
 	private void drawGrid() {
@@ -82,11 +87,22 @@ public class BoardDisplay extends Board implements Observer {
 		canvas.drawLine( colOffset + c1, rowOffset + r1, colOffset + c2, rowOffset + r2 );
 	}
 	    
-	public void update(Observable o, Object arg) {// not completed
+	public void update(Observable o, Object arg) {
+		//TODO Visualization of Maze in BoardDisplay by Observer-pattern
+		System.out.println("BoardDisplay Observer"+(int) arg);
+		
 		if(o instanceof Maze){
-			if (arg instanceof Integer)
-				fillCell((Integer)arg);
+			System.out.println("Was maze!");
 		}
+
+		if(o instanceof Board && arg instanceof Integer){
+			new BoardDisplay(canvas, ((Maze) o).maxRow, ((Maze) o).maxCol);
+			drawGrid();
+		}
+//		if(o instanceof Maze){
+//			if (arg instanceof Integer)
+//				fillCell((Integer)arg);
+//		}
 
 	}
 }

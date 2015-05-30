@@ -1,4 +1,4 @@
-package controller_hammer;
+package model_nail;
 // DisjointSets class
 //
 // CONSTRUCTION: with int representing initial number of sets

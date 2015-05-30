@@ -1,4 +1,4 @@
-package controller_hammer;
+package view_hand;
 import javax.swing.*;
 import java.awt.*;
 

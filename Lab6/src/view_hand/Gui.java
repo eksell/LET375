@@ -6,7 +6,8 @@ import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-import controller_hammer.Canvas;
+import controller_hammer.BoardDisplay;
+import controller_hammer.Maze;
 
 import java.io.File;
 import java.util.List;
@@ -25,6 +26,11 @@ public class Gui
     private JButton quitButton;    
     private int width = 0, height = 0;
     private Canvas canvas;
+    
+    //Added
+    Maze maze;
+    BoardDisplay boardDisp;
+    
     
     /**
      * Create an Maze explorer and display its GUI on screen.
@@ -78,10 +84,25 @@ public class Gui
     /**
      * Create a new maze in the graphics pane.
      */
-    private void createMaze()
-    {
+    private void createMaze(){
+    	//    	TODO GUI call to Maze!
+
+    	
+    	if(width > 0 && height > 0){
+    		maze = new Maze(width, height);
+    		boardDisp = new BoardDisplay(canvas, height, width);
+    		maze.addObserver(boardDisp); //Rätt?
+    		
+    		maze.create();
+    		
+    		//draw skall inte anropas här utan i BoardDisp's update
+    		
+    		
+    	}
+    	
     	showValues(width,height);  // Please remove this call when things starts to work correctly (OW we all go crazy!)
-//    	Develop this method!
+
+    	
     	searchButton.setEnabled(true);
     }
 
