@@ -89,13 +89,9 @@ public class BoardDisplay extends Board implements Observer {
 	    
 	public void update(Observable o, Object arg) {
 		//TODO Visualization of Maze in BoardDisplay by Observer-pattern
-		System.out.println("BoardDisplay Observer"+(int) arg);
+		System.out.println("BD-Update");
 		
 		if(o instanceof Maze){
-			System.out.println("Was maze!");
-		}
-
-		if(o instanceof Board && arg instanceof Integer){
 			new BoardDisplay(canvas, ((Maze) o).maxRow, ((Maze) o).maxCol);
 			drawGrid();
 		}

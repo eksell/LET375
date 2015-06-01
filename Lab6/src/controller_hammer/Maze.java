@@ -22,10 +22,10 @@ public class Maze extends Board {
     public void create() { //TODO Create the maze
     	
     	//Added, testing relation to boarddisplay
-    	System.out.println("Create w:"+super.maxCol+" & "+super.maxRow);
+    	System.out.println("Create:"+super.maxCol+"*"+super.maxRow+" maze.");
 
     	setChanged();
-   	 	notifyObservers(super.maxCell);
+   	 	notifyObservers(this);
     	
 //    	 setChanged();
 //    	 notifyObservers(maxRow,maxCol);

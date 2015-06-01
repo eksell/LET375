@@ -86,21 +86,18 @@ public class Gui
      */
     private void createMaze(){
     	//    	TODO GUI call to Maze!
-
     	
     	if(width > 0 && height > 0){
     		maze = new Maze(width, height);
     		boardDisp = new BoardDisplay(canvas, height, width);
-    		maze.addObserver(boardDisp); //Rätt?
     		
+    		maze.addObserver(boardDisp); //Rätt?
     		maze.create();
     		
     		//draw skall inte anropas här utan i BoardDisp's update
-    		
-    		
-    	}
+    	} else throw new Error("Non-existing dimensions!"); 
     	
-    	showValues(width,height);  // Please remove this call when things starts to work correctly (OW we all go crazy!)
+    	//showValues(width,height);  // Please remove this call when things starts to work correctly (OW we all go crazy!)
 
     	
     	searchButton.setEnabled(true);
