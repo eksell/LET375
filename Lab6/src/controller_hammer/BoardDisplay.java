@@ -2,11 +2,13 @@ package controller_hammer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.*;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 import view_hand.Canvas;
 import model_nail.*;
+import model_nail.Point.Direction;
 
 public class BoardDisplay extends Board implements Observer {
 	
@@ -87,6 +89,7 @@ public class BoardDisplay extends Board implements Observer {
 		canvas.drawLine( colOffset + c1, rowOffset + r1, colOffset + c2, rowOffset + r2 );
 	}
 	    
+	@SuppressWarnings("unchecked")
 	public void update(Observable o, Object arg) {
 		//TODO Visualization of Maze in BoardDisplay by Observer-pattern
 		System.out.println("BD-Update");
@@ -94,6 +97,17 @@ public class BoardDisplay extends Board implements Observer {
 		if(o instanceof Maze){
 			new BoardDisplay(canvas, ((Maze) o).maxRow, ((Maze) o).maxCol);
 			drawGrid();
+			
+			if(arg instanceof HashMap<?,?>){
+				int i = 0;
+				while(i<maxCell){
+					this.knockDownWall(i,(Direction)((HashMap<Integer, Direction>) arg).get(i));
+					i++;
+					System.out.println("Bankar vägg");
+					//fillCell(i);
+				}
+			}
+			
 		}
 //		if(o instanceof Maze){
 //			if (arg instanceof Integer)

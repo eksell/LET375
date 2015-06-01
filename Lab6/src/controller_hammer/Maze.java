@@ -32,8 +32,7 @@ public class Maze extends Board {
 		System.out.println("Create:"+super.maxCol+"*"+super.maxRow+" maze.");
 
 		//Notify observers of this maze-instance
-		setChanged();
-		notifyObservers(this);
+		
 
 		/**
 		 * Har DJ-set som här loopas till att ha unioner ges riktningar
@@ -85,6 +84,9 @@ public class Maze extends Board {
 			}
 
 		}
+		
+		setChanged();
+		notifyObservers(mazeMap);
 
 		//    	 int knockedWalls = 0;
 		//    	 //while(knockedWalls < (maxCell-1)();//TODO
