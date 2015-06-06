@@ -32,7 +32,7 @@ public class Maze extends Board {
 		System.out.println("Create:"+super.maxCol+"*"+super.maxRow+" maze.");
 
 		//Notify observers of this maze-instance
-		
+
 
 		/**
 		 * Har DJ-set som här loopas till att ha unioner ges riktningar
@@ -50,41 +50,59 @@ public class Maze extends Board {
 		int wallsLeft = 0;	// walls left to knock down
 		int cell = 0;
 		Point currentPoint = new Point(0,0);
+		boolean connect = true;
 
 
 		while(cell < (maxCell-1)){
 			System.out.print("W:"+cell+" of "+ maxCell);
 			currentPoint = new Point(getRow(cell),getCol(cell));
 
-			while(true){
+			while(connect){
 
 				Direction d = dirList.get(rand.nextInt(3)); //Random direction to move in
-				int oldPoint = cell;
-				int newPoint;
-				currentPoint = new Point(getRow(cell),getCol(cell));
 
-				Point testPoint = new Point(getRow(cell),getCol(cell));
-				testPoint.move(d);
-
-				if(0 <= getCellId(testPoint) && getCellId(testPoint)<= (maxCell-1)){
-					currentPoint.move(d);
-					newPoint = getCellId(currentPoint);
-					System.out.print("["+oldPoint+"->"+newPoint+"] ");
-				}else continue;
-
-				if(set.find(newPoint) != set.find(oldPoint)){
-					System.out.print("C:"+cell+" "+d+"\n");
-					mazeMap.put(getCellId(currentPoint), d); // Connect position and direction
-					set.union(set.find(oldPoint),set.find(newPoint));
-					cell++;
-					break;
+				if(		d == Direction.RIGHT && getCol(cell) == maxCol||
+						d == Direction.LEFT && getCol(cell) == 1||
+						d == Direction.DOWN && getRow(cell) == maxRow||
+						d == Direction.UP && getRow(cell) == 1){
+					System.out.println("cell");
+					continue;
 				}
+				else{
 
+					int oldPoint = cell;
+					int newPoint;
+					currentPoint = new Point(getRow(cell),getCol(cell));
+
+					Point testPoint = new Point(getRow(cell),getCol(cell));
+					testPoint.move(d);
+
+					if(0 <= getCellId(testPoint) && getCellId(testPoint)<= (maxCell-1)){
+						currentPoint.move(d);
+						newPoint = getCellId(currentPoint);
+						System.out.print("["+oldPoint+"->"+newPoint+"] ");
+					}else continue;
+
+					if(set.find(newPoint) != set.find(oldPoint)){
+						System.out.print("C:"+cell+" "+d+"\n");
+						mazeMap.put(getCellId(currentPoint), d); // Connect position and direction
+						set.union(set.find(oldPoint),set.find(newPoint));
+						cell++;
+					}
+
+					for(int i = 0; i<maxCell; i++){
+						connect = false;
+						if(set.find(0) != set.find(i)){
+							connect = true;
+							break;
+						}
+					}
+				}
 
 			}
 
 		}
-		
+
 		setChanged();
 		notifyObservers(mazeMap);
 
