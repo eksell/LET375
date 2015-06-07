@@ -146,9 +146,9 @@ public class Mobile {
         	 left.mirror();
         	 
         	 Mobile tempMobile = right;
-        	 float tempLength = rightlength;
+        	 float tempLength = rightLength;
         	 right = left;
-        	 rightlength = leftlength;
+        	 rightLength = leftLength;
         	 left = tempMobile;
         	 leftlength = tempLength;
         	 

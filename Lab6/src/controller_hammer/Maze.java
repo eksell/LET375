@@ -22,9 +22,11 @@ public class Maze extends Board {
 	public Maze( int rows, int cols ) {
 		super(rows,cols);
 		set = new DisjointSets(rows*cols);
-		graph = new ExtendedGraph(rows, cols);
+
+		graph = new ExtendedGraph();
 		row = rows;
 		col = cols;
+
 		//Adds
 		System.out.println("Maze Construct");
 	}
@@ -111,11 +113,11 @@ public class Maze extends Board {
 
 	public void search() { //TODO Later,  Maze search
 		graph.unweighted(0);
-		//	     List<Integer> list = graph.getPath(maxCell-1);
-		//    	 for(Integer i : list){
-		//    		 setChanged();
-		//    		 notifyObservers(i);
-		//    	 }
+			     List<Integer> list = graph.getPath(maxCell-1);
+		    	 for(Integer i : list){
+		    		 setChanged();
+		    		 notifyObservers(i);
+		    	 }
 	}
 
 	//    ...
