@@ -1,14 +1,8 @@
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.*;
-import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
-
-
-
-
 
 public class BoardDisplay extends Board implements Observer {
 	
@@ -31,11 +25,12 @@ public class BoardDisplay extends Board implements Observer {
 		rowOffset = (height-maxRow*gridSize)/2 + 2;
 		colOffset = (width-maxCol*gridSize)/2 + 2;
 		
-		//Entrance and exit
+		//Added
 		drawGrid();
+		//Entrance and exit
 		knockDownWall(0, Point.Direction.LEFT);
 		knockDownWall(maxCell - 1, Point.Direction.RIGHT);
-		
+				
 	}
 	
 	private void drawGrid() {
@@ -91,6 +86,7 @@ public class BoardDisplay extends Board implements Observer {
 		canvas.drawLine( colOffset + c1, rowOffset + r1, colOffset + c2, rowOffset + r2 );
 	}
 	    
+    
 	@SuppressWarnings("unchecked")
 	public void update(Observable o, Object arg) {
 		if( arg instanceof Pair) {

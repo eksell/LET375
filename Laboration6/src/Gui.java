@@ -1,9 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
 import javax.swing.*;
 import javax.swing.border.*;
-
 
 import java.io.File;
 import java.util.List;
@@ -81,7 +81,6 @@ public class Gui
     {
     	//showValues(width,height);  // Please remove this call when things starts to work correctly (OW we all go crazy!)
 //    	Develop this method!
-    	
     	canvas.erase();
     	maze    = new Maze(width, height);
     	display = new BoardDisplay(canvas, width, height);

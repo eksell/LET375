@@ -16,11 +16,15 @@ public class Maze extends Board {
 	private int col, row, amountOfSets;
 	private boolean connect;
 	private Point.Direction d;
+	private Random rand;
+	private Random randCell;
 
 	public Maze( int rows, int cols ) {
 		super(rows,cols);
 		row = rows;
 		col = cols;
+		randCell = new Random();
+		rand = new Random(); 
 
 		//Adds
 		System.out.println("Maze Construct");
@@ -36,9 +40,7 @@ public class Maze extends Board {
 		while( amountOfSets > 1){
 			
 			
-			//picking a random direction
-			Random rand = new Random(); 
-			
+			//Picking a random direction
 			int i;
 		
 				i = rand.nextInt(4);
@@ -59,7 +61,7 @@ public class Maze extends Board {
 				}
 				
 				//Creating two points on the same random cell inside grid
-				Random randCell = new Random();
+				
 				
 				int a = randCell.nextInt(maxCell);
 				
@@ -68,12 +70,11 @@ public class Maze extends Board {
 				
 				
 				
-				//moves one of the points in the random direction determined above from the other point 
-				 
+				//Moves newPoint from currentPoint in the random direction determined above   
 				newPoint.move(d);
 				
-				//Check if newPoint is still inside the original grid, if so, check if cells are already connected
-				//or if we should do a new union
+				//Check if newPoint is still inside the original grid, if so, check if cells are already 
+				//connected or if we should do a new union
 				if(isValid(newPoint))
 				{
 				
@@ -84,10 +85,11 @@ public class Maze extends Board {
 			int set1 = set.find(currentId);
 			int set2 = set.find(newId);
 			
-			if( set1 != set2){
+			if(set1 != set2){
 				set.union(set1, set2);
 				amountOfSets--;
-				//store the edges in both directions in graph
+				
+				//Store the edges in both directions in graph
 				graph.addEdge(currentId, newId, 1);
 				graph.addEdge(newId, currentId, 1);
 				
@@ -96,23 +98,23 @@ public class Maze extends Board {
     			notifyObservers(pair);
 			}
 			
-			}	
+		}	
 			
 			
-		}
+	}
 
 			
 			
 			
 			
 			
-		}
+}
 		
 	
 	
 	public void search() {
 		
-		//get shortest path
+		//Get shortest path from upper left corner cell to lower right corner cell
     	List<Integer> path = graph.getPath(maxCell - 1);
     	
     	for( Integer cellId : path ) {

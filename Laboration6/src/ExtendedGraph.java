@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ExtendedGraph extends Graph {
 	
-	public List<Integer> getPath( int destName ) {
+	public List<Integer> getPath( int destInd ) {
 		
 		unweighted(0);
 		
-		Vertex ver = vertexMap.get( destName );
+		Vertex ver = vertexMap.get( destInd );
         List<Integer> l = new ArrayList<Integer>();
 		return getPath( ver, l );
 	}
